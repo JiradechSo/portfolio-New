@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif
+        }
+
+        .w3-third img {
+            margin-bottom: -6px;
+            opacity: 0.8;
+            cursor: pointer
+        }
+
+        .w3-third img:hover {
+            opacity: 1
+        }
+    </style>
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px"></body>
+    <nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center"
+        style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+        <h3 class="w3-padding-64 w3-center"><b>Jiradech<br>Sopha</b></h3>
+        <a href="javascript:void(0)" onclick="w3_close()"
+            class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+        <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">PORTFOLIO</a>
+        <a href="index.html#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT ME</a>
+        <a href="index.html#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+        <a href="JS.html" onclick="w3_close()" class="w3-bar-item w3-button">JS</a>
+        <a href="Chart.html" onclick="w3_close()" class="w3-bar-item w3-button">CHART</a>
+        <a href="API.html" onclick="w3_close()" class="w3-bar-item w3-button">API</a>
+    </nav>
+    <header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+        <span class="w3-left w3-padding">Jiradech Sopha</span>
+        <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+    </header>
+    <div class="w3-container w3-center w3-text-light-grey w3-padding-32">
+        <div class="w3-content w3-justify" style="max-width:500px">
+            <canvas id="myPolarAreaChart" width="400" height="400"></canvas>
+
+            <script>
+                const data = {
+                    labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [11, 16, 7, 3, 14],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(75, 192, 192)',
+                            'rgb(255, 205, 86)',
+                            'rgb(201, 203, 207)',
+                            'rgb(54, 162, 235)'
+                        ]
+                    }]
+                };
+        
+                const config = {
+                    type: 'polarArea',
+                    data: data,
+                    options: {}
+                };
+        
+                document.addEventListener('DOMContentLoaded', function () {
+                    const ctx = document.getElementById('myPolarAreaChart').getContext('2d');
+                    new Chart(ctx, config);
+                });
+            </script>
+            <div class="Chrat">
+                <canvas id="myChart" style="width:100%;max-width:500px"></canvas>
+                <script>
+                    var xyValues = [
+                        { x: 50, y: 7 },
+                        { x: 60, y: 8 },
+                        { x: 120, y: 10 },
+                        { x: 67, y: 8 },
+                        { x: 70, y: 8 },
+                        { x: 80, y: 9 }
+        
+                    ];
+        
+                    new Chart("myChart", {
+                        type: "scatter",
+                        data: {
+                            datasets: [{
+                                pointRadius: 4,
+                                pointBackgroundColor: "black",
+                                data: xyValues
+                            }]
+                        },
+                        options: {
+                            legend: { display: false },
+                            scales: {
+                                xAxes: [{
+                                    ticks: { min: 40, max: 160 },
+                                }],
+                                yAxes: [{
+                                    ticks: { min: 6, max: 16 },
+                                }]
+                            }
+                        }
+                    });
+                </script>
+                <div>
+                    <canvas id="myjoe" style="width:100%;max-width:500px;"></canvas>
+                </div>
+        
+                <script>
+                    const ctx = document.getElementById('myjoe');
+        
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['สุนัข', 'แมว', 'หนู', 'ปลา'],
+                            datasets: [{
+                                label: 'สัตว์เลี้ยงที่หลายคนชอบ',
+                                data: [5,5,5,5,],
+                                backgroundColor: ['black','black','black','black','black'],
+                                borderColor: ['black','black','black','black','black'],
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    color: 'black'
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    beginAtZero: true,
+                                    color: 'black'
+                                }
+                            },
+                            maintainAspectRatio: false,
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: 'black'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        
+        </div>
+      </div>
+
+<script>
+    // Script to open and close sidebar
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+
+</script>
+
+</html>

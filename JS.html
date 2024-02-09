@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif
+        }
+
+        .w3-third img {
+            margin-bottom: -6px;
+            opacity: 0.8;
+            cursor: pointer
+        }
+
+        .w3-third img:hover {
+            opacity: 1
+        }
+    </style>
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px"></body>
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center"
+    style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+    <h3 class="w3-padding-64 w3-center"><b>Jiradech<br>Sopha</b></h3>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+    <a href="index.html" onclick="w3_close()" class="w3-bar-item w3-button">PORTFOLIO</a>
+    <a href="index.html#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT ME</a>
+    <a href="index.html#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+    <a href="JS.html" onclick="w3_close()" class="w3-bar-item w3-button">JS</a>
+    <a href="Chart.html" onclick="w3_close()" class="w3-bar-item w3-button">CHART</a>
+    <a href="API.html" onclick="w3_close()" class="w3-bar-item w3-button">API</a>
+</nav>
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+    <span class="w3-left w3-padding">Jiradech Sopha</span>
+    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+<div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32">
+    <div class="w3-content w3-justify" style="max-width:600px">
+        <div class="w3-content w3-padding-64 w3-margin-top" style="max-width:1564px">
+            <h3>แปลงหน่วยอุณหภูมิ</h3>
+            <input id="inputValue" type="text">
+            <button onclick="toCelsiusProgram(document.getElementById('inputValue').value)">แปลงเป็น Celsius</button>
+            <button onclick="toFahrenheitProgram(document.getElementById('inputValue').value)">แปลงเป็น Fahrenheit</button>
+            <hr>
+            <h3>โปรแกรมคำนวณเกรดเฉลี่ย</h3>
+            <h1 id="result"></h1>
+            <hr>
+            <h3>กดเถอะครับ</h3>
+            <h1 id="resultOnclick"></h1>
+            <p onclick ='sayHello()'>JS is here</p>
+            <p onclick ='alert("hello Programmer")'>Programmer is here</p>
+            <button onclick ='sayHello()'>Let's Say Hello </button>
+            <hr>
+            <div class="row">
+                <div class="create">
+                    <h2>หาความยาวเส่นรอบวง</h2>
+                    <input id="input" type="text" placeholder="รัศมี">
+                    <button onclick="calculateAndDisplayCircumference()">คำนวน</button>
+                    <h4>ความยาวเส้นรอบวงกลม:<span id="result1"></span></h4>
+                </div>
+            </div>
+            <hr>
+            <h3>เว็บไซต์นี้มีเนื้อหารุนแรง ต้องมีอายุมากกว่า 11 ปีเท่านั้น</h3>
+            <div id="content"></div>
+            <br>
+            <script src="app.js"></script>
+        </div>
+        <footer class="w3-center w3-black w3-padding-16">
+          <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+        </footer>
+    
+    </div>
+  </div>
+
+
+        <script>
+            // Script to open and close sidebar
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+            }
+
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("myOverlay").style.display = "none";
+            }
+
+            // Modal Image Gallery
+            function onClick(element) {
+                document.getElementById("img01").src = element.src;
+                document.getElementById("modal01").style.display = "block";
+                var captionText = document.getElementById("caption");
+                captionText.innerHTML = element.alt;
+            }
+
+        </script>
+        <script>
+            function calculateCircleCircumference(radius) {
+                return 2 * Math.PI * radius;
+            }
+            function calculateAndDisplayCircumference() {
+                let inputElement = document.getElementById('input');
+                let resultElement = document.getElementById('result1');
+        
+                let radius = parseFloat(inputElement.value);
+        
+                if (!isNaN(radius)) {
+                    let circumference = calculateCircleCircumference(radius);
+                    resultElement.textContent = circumference.toFixed(2);
+                } else {
+                    resultElement.textContent = 'กรุณากรอกค่าที่ถูกต้อง';
+                }
+            }
+        </script>
+</html>
